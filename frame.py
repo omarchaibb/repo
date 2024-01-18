@@ -100,10 +100,24 @@ index = 0
 order = ""
 total_amount = 0
 
+prices = {
+    "coscos":20,
+    "Tajin":30,
+    "baboush":50,
+    "Hrira":60,
+    "pizza":70,
+    "banana":100
+}
 def displaycoscos():
     coscosFrame.configure(relief="sunken",style="SelectedDish.TFrame")
     
-    global price
+    defaultimagelab.configure(image=coscosImage,text="coscos",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
+    taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    
     price = 20
     global index
     index = 1
@@ -112,140 +126,138 @@ def displaycoscos():
     global total_amount
     total_amount += price
 
-    defaultimagelab.configure(image=coscosImage,text="CosCos",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
-    taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
-    baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
-    hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
-    pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
-    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
 
 
 def displaytajin():
-    taginFrame.configure(
-        relief="sunken",
-        style="SelectedDish.TFrame"
-    )
-    global price
-    price = 30
-    global index
-    index = 1
-    global order
-    order = f"coscos prix :{price} DH"
-    global total_amount
-    total_amount += price
-
+    taginFrame.configure(relief="sunken",style="SelectedDish.TFrame")
+    
     defaultimagelab.configure(image=tajinImage,text="Tajin",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
     coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
     baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
     hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
     pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
     bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
-
-
-def displaybaboush():
-    baboushFrame.configure(
-        relief="sunken",
-        style="SelectedDish.TFrame"
-    )
-    global price
-    price = 50
+    
+    price = 30
     global index
     index = 1
     global order
-    order = f"coscos prix :{price} DH"
+    order = f"twijin prix :{price} DH"
     global total_amount
     total_amount += price
 
+
+
+def displaybaboush():
+    baboushFrame.configure(relief="sunken",style="SelectedDish.TFrame")
+    
     defaultimagelab.configure(image=baboushImage,text="baboush",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom", padding=(5, 5, 5, 5), background="#000")
     coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
     taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
     hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
     pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
     bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
-
-def displayhrira():
-    hsouyaFrame.configure(
-        relief="sunken",
-        style="SelectedDish.TFrame"
-    )
+    
     global price
-    price = 60
+    price = 50
     global index
     index = 1
     global order
-    order = f"coscos prix :{price} DH"
+    order = f"baboush prix :{price} DH"
     global total_amount
     total_amount += price
 
+
+def displayhrira():
+    hsouyaFrame.configure(relief="sunken",style="SelectedDish.TFrame")
+    
     defaultimagelab.configure(image=hsouwaImage,text="Hrira",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
     coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
     taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
     baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
     pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
     bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
-def displaypizza():
-    pizzaFrame.configure(
-        relief="sunken",
-        style="SelectedDish.TFrame"
-    )
     global price
-    price = 70
+    price = 60
     global index
     index = 1
     global order
-    order = f"coscos prix :{price} DH"
+    order = f"hrira prix :{price} DH"
     global total_amount
     total_amount += price
 
-
+def displaypizza():
+    pizzaFrame.configure(relief="sunken",style="SelectedDish.TFrame")
+    
     defaultimagelab.configure(image=pizzaImage,text="pizza",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
     coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
     taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
     baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
     hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
     bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
-def displaybanan():
-    bananaFrame.configure(
-        relief = "sunken",
-        style = "SelectedDish.TFrame"
-    )
+    
     global price
-    price = 100
+    price = 70
     global index
     index = 1
     global order
-    order = f"coscos prix :{price} DH"
+    order = f"pizza prix :{price} DH"
     global total_amount
     total_amount += price
 
-    defaultimagelab.configure(image = bananaImage,text = "banan",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
+
+def displaybanan():
+    bananaFrame.configure(relief = "sunken",style = "SelectedDish.TFrame")
+    global dd
+    dd= defaultimagelab.configure(image = bananaImage,text = "banana",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
     coscosFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     taginFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     baboushFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     hsouyaFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     pizzaFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     
-    print(total_amount)
-def le_totale():
-        return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
+    
+    price = 100
+    global index
+    index = 1
+    global order
+    order = f"banane prix :{price} DH"
+    global total_amount
+    total_amount += price
+
+    
+# def le_totale():
+#         return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
 
         
-def addorder():
-    if index == 0:
-        return
-    else:
-        orderTransaction.config(text=order)
+# def addorder():
+#     if index == 0:
+#         return        
+#     else:
+#         orderTransaction.config(text=order)
     
-def two_functions():
-    le_totale()
-    addorder()
+# def two_functions():
+#     le_totale()
+#     addorder()
 
-def removeorder():
-    global total_amount
-    total_amount -= price
-    if total_amount != 0:
-        return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
-    
+# def removeorder():
+#     global total_amount
+#     total_amount -= price
+#     if total_amount >= 0:
+#         return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
+#     else:
+#         return
+# # def add():
+# #     totalee=0
+# #     to= dd.cget('text')
+# #     print(to)
+# # add()
+def add():
+    # updating the transaction label
+    main_ttc = orderTransaction.cget("text")
+    order_name_with_price = defaultimagelab.cget('text') +": "+str(prices[defaultimagelab.cget("text")])+" "*30
+    list_order = main_ttc + order_name_with_price
+    orderTransaction.configure(text=list_order)
 # ============== Buttons =====================
 
 coscosbutton = ttk.Button(coscosFrame,text="Display",command= displaycoscos) 
@@ -302,10 +314,10 @@ removeOrderButton.grid(row = 1, column = 1, padx = 2, sticky = "NSEW")
 
 
 # ========================display buttons ======================
-addtorderbutton = ttk.Button(displayFrame,text="ADD TO ORDER",command=two_functions)
+addtorderbutton = ttk.Button(displayFrame,text="ADD TO ORDER",command=add)
 addtorderbutton.grid(row=1,column=0,sticky='NSEW')
 
-removebutton = ttk.Button(displayFrame,text="REMOVE",command=removeorder)
+removebutton = ttk.Button(displayFrame,text="REMOVE")
 removebutton.grid(row=1,column=1,sticky="NSEW")
 
 # ====================== order =================
@@ -313,14 +325,7 @@ orderTitleLabel = ttk.Label(orderFrame, text = "ORDER")
 orderTitleLabel.configure(foreground="white", background="black",font=("Helvetica", 14, "bold"), anchor = "center",padding = (5, 5, 5, 5),)
 orderTitleLabel.grid(row = 0, column = 0, sticky = "EW")
 
-orderIDLabel = ttk.Label(orderFrame, text = "ORDER ID : ")
-orderIDLabel.configure(
-    background = "black",
-    foreground = "white",
-    font = ("Helvetica", 11, "italic"),
-    anchor = "center",
-)
-orderIDLabel.grid(row = 1, column = 0, sticky = "EW", pady = 1)
+
 
 orderTransaction = ttk.Label(orderFrame, style = 'orderTransaction.TLabel')
 orderTransaction.grid(row = 2, column = 0, sticky = "NSEW")
