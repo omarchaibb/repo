@@ -208,8 +208,8 @@ def displaypizza():
 
 def displaybanan():
     bananaFrame.configure(relief = "sunken",style = "SelectedDish.TFrame")
-    global dd
-    dd= defaultimagelab.configure(image = bananaImage,text = "banana",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
+
+    defaultimagelab.configure(image = bananaImage,text = "banana",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
     coscosFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     taginFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     baboushFrame.configure(relief = "sunken",style="DishFrame.TFrame")
@@ -234,6 +234,7 @@ def displaybanan():
 #     if index == 0:
 #         return        
 #     else:
+        
 #         orderTransaction.config(text=order)
     
 # def two_functions():
@@ -247,17 +248,39 @@ def displaybanan():
 #         return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
 #     else:
 #         return
-# # def add():
-# #     totalee=0
-# #     to= dd.cget('text')
-# #     print(to)
-# # add()
+
+
+# def add():
+#     totalee=0
+#     to= dd.cget('text')
+#     print(to)
+# add()
+
+liste_of_orders = []
+totale = 0
 def add():
-    # updating the transaction label
+    global main_ttc,order_name_with_price,list_order
     main_ttc = orderTransaction.cget("text")
-    order_name_with_price = defaultimagelab.cget('text') +": "+str(prices[defaultimagelab.cget("text")])+" "*30
+    order_name_with_price = defaultimagelab.cget('text') +": "+str(prices[defaultimagelab.cget("text")])+"dh"+" "*30
     list_order = main_ttc + order_name_with_price
     orderTransaction.configure(text=list_order)
+    
+    # add in the totale :
+    global totale
+    totale += prices[defaultimagelab.cget("text")]
+    orderTotalLabel.configure(text=f"TOTAL : {totale}$")
+
+    liste_of_orders.append(order_name_with_price)
+    print(liste_of_orders)
+
+def remove():
+    global totale
+    liste_of_orders.pop(-1)
+    print(liste_of_orders)
+    orderTransaction.configure(text=" ".join(liste_of_orders))
+    totale -= prices[defaultimagelab.cget("text")]
+    orderTotalLabel.configure(text=f"TOTAL :{totale}")
+    print(totale)
 # ============== Buttons =====================
 
 coscosbutton = ttk.Button(coscosFrame,text="Display",command= displaycoscos) 
@@ -317,7 +340,7 @@ removeOrderButton.grid(row = 1, column = 1, padx = 2, sticky = "NSEW")
 addtorderbutton = ttk.Button(displayFrame,text="ADD TO ORDER",command=add)
 addtorderbutton.grid(row=1,column=0,sticky='NSEW')
 
-removebutton = ttk.Button(displayFrame,text="REMOVE")
+removebutton = ttk.Button(displayFrame,text="REMOVE",command=remove)
 removebutton.grid(row=1,column=1,sticky="NSEW")
 
 # ====================== order =================
