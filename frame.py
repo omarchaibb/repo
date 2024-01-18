@@ -1,407 +1,250 @@
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image,ImageTk
+from PIL import Image, ImageTk
+
 root = tk.Tk()
 root.geometry("900x600")
 
-s=ttk.Style()
-s.configure("SelectedDish.TFrame",background='green')
-s.configure("MainFrame.TFrame",background="#2B2B28")
-s.configure("menuFrame.TFrame",background="#4A4A48")
-s.configure("DisplayFrame.TFrame",background="#0F1110",width=30)
-s.configure('OrderFrame.TFrame', background = "#B7C4CF")
-s.configure("DishFrame.TFrame",background = "#4A4A48", relief = "sunken")
-s.configure("defaultstyle.TFrame",background = "#4A4A48", relief = "sunken")
-s.configure('MenuLabel.TLabel',
-            background = "#0F1110",
-            font = ("Arial", 13, "italic"),
-            foreground = "white",
-            padding = (10,10),
-            width = 17
-            )
-s.configure('orderTotalLabel.TLabel',
-            background = "#0F1110",
-            font = ("Arial", 10, "bold"),
-            foreground = "white",
-            padding = (2, 2, 2, 2),
-            anchor = "w"
-            )
-s.configure('orderTransaction.TLabel',
-            background = "#4A4A48",
-            font = ('Helvetica', 12),
-            foreground = "white",
-            wraplength = 170,
-            anchor = "nw",
-            padding = (3, 3, 3, 3)
-            )
+s = ttk.Style()
+s.configure("SelectedDish.TFrame", background='green')
+s.configure("MainFrame.TFrame", background="#2B2B28")
+s.configure("menuFrame.TFrame", background="#4A4A48")
+s.configure("DisplayFrame.TFrame", background="#0F1110", width=30)
+s.configure('OrderFrame.TFrame', background="#B7C4CF")
+s.configure("DishFrame.TFrame", background="#4A4A48", relief="sunken")
+s.configure('MenuLabel.TLabel',background="#0F1110",font=("Arial", 13, "italic"),foreground="white",padding=(10, 10),width=17)
+s.configure('orderTotalLabel.TLabel',background="#0F1110",font=("Arial", 10, "bold"),foreground="white",padding=(2, 2, 2, 2),anchor="w")
+s.configure('orderTransaction.TLabel',background="#4A4A48",font=('Helvetica', 12),foreground="white",wraplength=170,anchor="nw",padding=(3, 3, 3, 3))
 
+# ================== section frames =============
 
-
-# ================== section frames ============= 
-
-mainFrame = ttk.Frame(root, width = 800, height = 580, style = 'MainFrame.TFrame')
-mainFrame.grid(row = 0, column = 0, sticky = "NSEW")
+mainFrame = ttk.Frame(root, width=800, height=580, style='MainFrame.TFrame')
+mainFrame.grid(row=0, column=0, sticky="NSEW")
 
 topBannerFrame = ttk.Frame(mainFrame)
-topBannerFrame.grid(row = 0, column = 0, sticky = "NSEW", columnspan = 3)
+topBannerFrame.grid(row=0, column=0, sticky="NSEW", columnspan=3)
 
-menuFrame = ttk.Frame(mainFrame, style = 'menuFrame.TFrame')
-menuFrame.grid(row = 1, column = 0, padx = 3, pady = 3, sticky = "NSEW")
+menuFrame = ttk.Frame(mainFrame, style='menuFrame.TFrame')
+menuFrame.grid(row=1, column=0, padx=3, pady=3, sticky="NSEW")
 
-displayFrame = ttk.Frame(mainFrame, style = "DisplayFrame.TFrame")
-displayFrame.grid(row = 1, column = 1, padx = 3, pady = 3, sticky = "NSEW")
+displayFrame = ttk.Frame(mainFrame, style="DisplayFrame.TFrame")
+displayFrame.grid(row=1, column=1, padx=3, pady=3, sticky="NSEW")
 
-orderFrame = ttk.Frame(mainFrame, style = "OrderFrame.TFrame")
-orderFrame.grid(row = 1, column = 2, padx = 3, pady = 3, sticky = "NSEW")
-
+orderFrame = ttk.Frame(mainFrame, style="OrderFrame.TFrame")
+orderFrame.grid(row=1, column=2, padx=3, pady=3, sticky="NSEW")
 
 # =================== dish frames ===========
 
-coscosFrame = ttk.Frame(menuFrame,style="DishFrame.TFrame")
-coscosFrame.grid(row=1,column=0,sticky="NSEW")
+coscosFrame = ttk.Frame(menuFrame, style="DishFrame.TFrame")
+coscosFrame.grid(row=1, column=0, sticky="NSEW")
 
-taginFrame  = ttk.Frame(menuFrame,style="DishFrame.TFrame")
-taginFrame.grid(row=2,column=0,sticky="NSEW")
+taginFrame = ttk.Frame(menuFrame, style="DishFrame.TFrame")
+taginFrame.grid(row=2, column=0, sticky="NSEW")
 
-baboushFrame= ttk.Frame(menuFrame,style="DishFrame.TFrame")
-baboushFrame.grid(row=3,column=0,sticky="NSEW")
+baboushFrame = ttk.Frame(menuFrame, style="DishFrame.TFrame")
+baboushFrame.grid(row=3, column=0, sticky="NSEW")
 
-hsouyaFrame = ttk.Frame(menuFrame,style="DishFrame.TFrame")
-hsouyaFrame.grid(row=4,column=0,sticky="NSEW")
+hsouyaFrame = ttk.Frame(menuFrame, style="DishFrame.TFrame")
+hsouyaFrame.grid(row=4, column=0, sticky="NSEW")
 
+pizzaFrame = ttk.Frame(menuFrame, style="DishFrame.TFrame")
+pizzaFrame.grid(row=5, column=0, sticky="NSEW")
 
-
-pizzaFrame  = ttk.Frame(menuFrame,style="DishFrame.TFrame")
-pizzaFrame.grid(row=5,column=0,sticky="NSEW")
-
-bananaFrame = ttk.Frame(menuFrame,style="DishFrame.TFrame")
-bananaFrame.grid(row=6,column=0,sticky="NSEW")
-
-
+bananaFrame = ttk.Frame(menuFrame, style="DishFrame.TFrame")
+bananaFrame.grid(row=6, column=0, sticky="NSEW")
 
 # ==================== images ================
 
-logoimageObject= Image.open("C:\\Users\\omarc\\Desktop\\github\\realrepo\\images\\logo.png").resize((120,120))
-logoImage= ImageTk.PhotoImage(logoimageObject)
+logoimageObject = Image.open("C:\\Users\\omarc\\Desktop\\github\\realrepo\\images\\logo.png").resize((120, 120))
+logoImage = ImageTk.PhotoImage(logoimageObject)
 
-
-topFrameImage = Image.open("C:\\Users\\omarc\\Desktop\\github\\realrepo\\images\\res.png").resize((780,120))
+topFrameImage = Image.open("C:\\Users\\omarc\\Desktop\\github\\realrepo\\images\\res.png").resize((780, 120))
 topimage = ImageTk.PhotoImage(topFrameImage)
 
+# ================ images lables =============
 
+labellogo = ttk.Label(topBannerFrame, image=logoImage)
+labellogo.grid(row=0, column=0, sticky="W")
 
-
-# ================ images lables ============= 
-
-labellogo = ttk.Label(topBannerFrame,image=logoImage)
-labellogo.grid(row = 0 , column=0,sticky="W")
-
-
-labelresimage = ttk.Label(topBannerFrame,image=topimage,background="black")
-labelresimage.grid(row=0,column=1,sticky="NSEW")
-
+labelresimage = ttk.Label(topBannerFrame, image=topimage, background="black")
+labelresimage.grid(row=0, column=1, sticky="NSEW")
 
 # =============== Menu label =================
 
-labelMenu = ttk.Label(menuFrame,text="Menu" , style='MenuLabel.TLabel') 
-labelMenu.grid(row=0,column=0,columnspan=2,sticky="NSEW")
-labelMenu.configure(anchor="center",font=("Helvetica",14,"bold"))
-
-
-
+labelMenu = ttk.Label(menuFrame, text="Menu", style='MenuLabel.TLabel')
+labelMenu.grid(row=0, column=0, columnspan=2, sticky="NSEW")
+labelMenu.configure(anchor="center", font=("Helvetica", 14, "bold"))
 
 # ================ dish labels ===============
 
-coscosFramelabel = ttk.Label(coscosFrame,text="Cscou bdjaj  : 100$",style='MenuLabel.TLabel')
-coscosFramelabel.grid(row=0,column=0,padx=10,pady=10,sticky="W")
+coscosFramelabel = ttk.Label(coscosFrame, text="Cscou bdjaj  : 20", style='MenuLabel.TLabel')
+coscosFramelabel.grid(row=0, column=0, padx=10, pady=10, sticky="W")
 
-taginFrameleb  = ttk.Label(taginFrame,text="atajin :100$",style='MenuLabel.TLabel')
-taginFrameleb.grid(row=0,column=0,sticky="W",padx=10,pady=10)
+taginFrameleb = ttk.Label(taginFrame, text="atajin : 30", style='MenuLabel.TLabel')
+taginFrameleb.grid(row=0, column=0, sticky="W", padx=10, pady=10)
 
-baboushFrameleb= ttk.Label(baboushFrame,text="baboush miat :40$",style='MenuLabel.TLabel')
-baboushFrameleb.grid(row=0,column=0,sticky="W",padx=10,pady=10)
+baboushFrameleb = ttk.Label(baboushFrame, text="baboush miat : 50", style='MenuLabel.TLabel')
+baboushFrameleb.grid(row=0, column=0, sticky="W", padx=10, pady=10)
 
-hsouwaFrameleb = ttk.Label(hsouyaFrame,text="hsouwa :100$" ,style="MenuLabel.TLabel")
-hsouwaFrameleb.grid(row=0,column=0,sticky='W',padx=10,pady=10)
+hsouwaFrameleb = ttk.Label(hsouyaFrame, text="hsouwa : 60 ", style="MenuLabel.TLabel")
+hsouwaFrameleb.grid(row=0, column=0, sticky='W', padx=10, pady=10)
 
-pizzaframelab =ttk.Label(pizzaFrame,text="pizza fabor : 1$",style="MenuLabel.TLabel")
-pizzaframelab.grid(row=0,column=0,sticky='W',padx=10,pady=10)
+pizzaframelab = ttk.Label(pizzaFrame, text="pizza fabor : 70 ", style="MenuLabel.TLabel")
+pizzaframelab.grid(row=0, column=0, sticky='W', padx=10, pady=10)
 
-bananaFrameleb = ttk.Label(bananaFrame,text="banana 10$" ,style='MenuLabel.TLabel')
-bananaFrameleb.grid(row=0,column=0,sticky='W',padx=10,pady=10)
+bananaFrameleb = ttk.Label(bananaFrame, text="banana   : 100 ", style='MenuLabel.TLabel')
+bananaFrameleb.grid(row=0, column=0, sticky='W', padx=10, pady=10)
 
-# ====================function==============
+# ==================== function ==============
 index = 0
 order = ""
+total_amount = 0
 
 def displaycoscos():
-    coscosFrame.configure(
-        relief = "sunken",
-        style="SelectedDish.TFrame"
-    )
-    price = 100
-    global index
-    index = 1
-    global order
-    order = f"coscos prix :{price} DH"
+    coscosFrame.configure(relief="sunken",style="SelectedDish.TFrame")
     
-    
-    
-    defaultimagelab.configure(
-        image = coscosImage,
-        text = "CosCos",
-        font=('Helvetica', 14,"bold"),
-        foreground="white",
-        compound = "bottom",
-        padding = (5, 5, 5, 5),
-        background="#000"
-    )
-    taginFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-        
-    )
-    baboushFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    hsouyaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    pizzaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    bananaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-
-def displaytajin():
-    taginFrame.configure(
-        relief = "sunken",
-        style = "SelectedDish.TFrame"
-    )
+    global price
     price = 20
     global index
     index = 1
     global order
     order = f"coscos prix :{price} DH"
+    global total_amount
+    total_amount += price
 
-    defaultimagelab.configure(
-        image = tajinImage,
-        text = "Tajin",
-        font=('Helvetica', 14,"bold"),
-        foreground="white",
-        compound = "bottom",
-        padding = (5, 5, 5, 5),
-        background="#000"
+    defaultimagelab.configure(image=coscosImage,text="CosCos",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
+    taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+
+
+def displaytajin():
+    taginFrame.configure(
+        relief="sunken",
+        style="SelectedDish.TFrame"
     )
-    coscosFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-    baboushFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    hsouyaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    pizzaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    bananaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-def displaybaboush():
-    baboushFrame.configure(
-        relief = "sunken",
-        style = "SelectedDish.TFrame"
-    )
-    
+    global price
     price = 30
     global index
     index = 1
     global order
     order = f"coscos prix :{price} DH"
-    
-    defaultimagelab.configure(
-        image = baboushImage,
-        text = "baboush",
-        font=('Helvetica', 14,"bold"),
-        foreground="white",
-        compound = "bottom",
-        padding = (5, 5, 5, 5),
-        background="#000"
+    global total_amount
+    total_amount += price
+
+    defaultimagelab.configure(image=tajinImage,text="Tajin",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
+    coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+
+
+def displaybaboush():
+    baboushFrame.configure(
+        relief="sunken",
+        style="SelectedDish.TFrame"
     )
-    coscosFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-    taginFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-        
-    )
-    
-    hsouyaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    pizzaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    bananaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
+    global price
+    price = 50
+    global index
+    index = 1
+    global order
+    order = f"coscos prix :{price} DH"
+    global total_amount
+    total_amount += price
+
+    defaultimagelab.configure(image=baboushImage,text="baboush",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom", padding=(5, 5, 5, 5), background="#000")
+    coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+
 def displayhrira():
     hsouyaFrame.configure(
-        relief = "sunken",
-        style = "SelectedDish.TFrame"
+        relief="sunken",
+        style="SelectedDish.TFrame"
     )
-    
-    price = 40
+    global price
+    price = 60
     global index
     index = 1
     global order
     order = f"coscos prix :{price} DH"
-    
+    global total_amount
+    total_amount += price
 
-    defaultimagelab.configure(
-        image = hsouwaImage,
-        text = "Hrira",
-        font=('Helvetica', 14,"bold"),
-        foreground="white",
-        compound = "bottom",
-        padding = (5, 5, 5, 5),
-        background="#000"
-    )
-    coscosFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-    taginFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-        
-    )
-    baboushFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-    pizzaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    bananaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
+    defaultimagelab.configure(image=hsouwaImage,text="Hrira",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
+    coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    pizzaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
 def displaypizza():
     pizzaFrame.configure(
-        relief = "sunken",
-        style = "SelectedDish.TFrame"
+        relief="sunken",
+        style="SelectedDish.TFrame"
     )
-    
-    price = 10
+    global price
+    price = 70
     global index
     index = 1
     global order
     order = f"coscos prix :{price} DH"
+    global total_amount
+    total_amount += price
 
-    defaultimagelab.configure(
-        image = pizzaImage,
-        text = "pizza",
-        font=('Helvetica', 14,"bold"),
-        foreground="white",
-        compound = "bottom",
-        padding = (5, 5, 5, 5),
-        background="#000"
-    )
-    coscosFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-    taginFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-        
-    )
-    baboushFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    hsouyaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    
-    bananaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
+
+    defaultimagelab.configure(image=pizzaImage,text="pizza",font=('Helvetica', 14, "bold"),foreground="white",compound="bottom",padding=(5, 5, 5, 5),background="#000")
+    coscosFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    taginFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    baboushFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    hsouyaFrame.configure(relief="sunken",style="DishFrame.TFrame")
+    bananaFrame.configure(relief="sunken",style="DishFrame.TFrame")
 def displaybanan():
     bananaFrame.configure(
         relief = "sunken",
         style = "SelectedDish.TFrame"
     )
-    price = 5
+    global price
+    price = 100
     global index
     index = 1
     global order
     order = f"coscos prix :{price} DH"
+    global total_amount
+    total_amount += price
 
-    defaultimagelab.configure(
-        image = bananaImage,
-        text = "banan",
-        font=('Helvetica', 14,"bold"),
-        foreground="white",
-        compound = "bottom",
-        padding = (5, 5, 5, 5),
-        background="#000"
-    )
-    coscosFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
+    defaultimagelab.configure(image = bananaImage,text = "banan",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
+    coscosFrame.configure(relief = "sunken",style="DishFrame.TFrame")
+    taginFrame.configure(relief = "sunken",style="DishFrame.TFrame")
+    baboushFrame.configure(relief = "sunken",style="DishFrame.TFrame")
+    hsouyaFrame.configure(relief = "sunken",style="DishFrame.TFrame")
+    pizzaFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     
-    taginFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
+    print(total_amount)
+def le_totale():
+        return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
+
         
-    )
-    baboushFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    hsouyaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
-    pizzaFrame.configure(
-        relief = "sunken",
-        style="defaultstyle.TFrame"
-    )
 def addorder():
     if index == 0:
         return
     else:
         orderTransaction.config(text=order)
+    
+def two_functions():
+    le_totale()
+    addorder()
+
+def removeorder():
+    global total_amount
+    total_amount -= price
+    if total_amount != 0:
+        return orderTotalLabel.configure( text = f"TOTAL : {total_amount}", style = "orderTotalLabel.TLabel")
     
 # ============== Buttons =====================
 
@@ -422,8 +265,6 @@ pizzabutton.grid(row=0,column=1,padx=10,pady=10)
 
 bananabutton = ttk.Button(bananaFrame,text="Display",command=displaybanan)
 bananabutton.grid(row=0,column=1,padx=10,pady=10)
-
-
 
 # ==========================  display  images =================
 defaultdisplayImage = Image.open("C:\\Users\\omarc\\Desktop\\github\\realrepo\\images\\default.png").resize((300,400))
@@ -461,14 +302,11 @@ removeOrderButton.grid(row = 1, column = 1, padx = 2, sticky = "NSEW")
 
 
 # ========================display buttons ======================
-addtorderbutton = ttk.Button(displayFrame,text="ADD TO ORDER",command=addorder)
+addtorderbutton = ttk.Button(displayFrame,text="ADD TO ORDER",command=two_functions)
 addtorderbutton.grid(row=1,column=0,sticky='NSEW')
 
-removebutton = ttk.Button(displayFrame,text="REMOVE")
+removebutton = ttk.Button(displayFrame,text="REMOVE",command=removeorder)
 removebutton.grid(row=1,column=1,sticky="NSEW")
-
-
-
 
 # ====================== order =================
 orderTitleLabel = ttk.Label(orderFrame, text = "ORDER")
@@ -493,9 +331,6 @@ orderTotalLabel.grid(row = 3, column = 0, sticky = "EW")
 orderButton = ttk.Button(orderFrame, text = "ORDER")
 orderButton.grid(row = 4, column = 0, sticky = "EW")
 
-
-
-
 # ============== grid configuration ==========
 
 mainFrame.columnconfigure(2,weight=1)
@@ -509,7 +344,5 @@ menuFrame.rowconfigure(5,weight=1)
 menuFrame.rowconfigure(6,weight=1)
 orderFrame.columnconfigure(0,weight=1)
 orderFrame.rowconfigure(2,weight=1)
-
-
 
 root.mainloop()
