@@ -1,12 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
-from datetime import date
 from datetime import datetime
 
 root = tk.Tk()
 root.geometry("900x560")
-root.title("order system")
 root.resizable(False,False)
 
 s = ttk.Style()
@@ -18,7 +16,7 @@ s.configure('OrderFrame.TFrame', background="#B7C4CF")
 s.configure("DishFrame.TFrame", background="#4A4A48", relief="sunken")
 s.configure('MenuLabel.TLabel',background="#0F1110",font=("Arial", 13, "italic"),foreground="white",padding=(10, 10),width=17)
 s.configure('orderTotalLabel.TLabel',background="#0F1110",font=("Arial", 10, "bold"),foreground="white",padding=(2, 2, 2, 2),anchor="w")
-s.configure('orderTransaction.TLabel',background="#4A4A48",font=('Helvetica', 12),foreground="white",wraplength=170,anchor="nw",padding=(3, 3, 3, 3))
+s.configure('orderTransaction.TLabel',background="#4A4A48",font=('Helvetica', 12),foreground="white",wraplength=160,anchor="nw",padding=(3, 3, 3, 3))
 
 # ================== section frames =============
 
@@ -96,9 +94,7 @@ tacosFrameleb = ttk.Label(tacosFrame, text="tacos : 100dh ", style='MenuLabel.TL
 tacosFrameleb.grid(row=6, column=0, sticky='W', padx=10, pady=10)
 
 # ==================== function ==============
-index = 0
-order = ""
-total_amount = 0
+
 
 prices = {
     "Tajin":20,
@@ -162,7 +158,7 @@ def displaypizza():
 def displayTacos():
     tacosFrame.configure(relief = "sunken",style = "SelectedDish.TFrame")
     
-    defaultimagelab.configure(image = tacosImage,text = "Tacos",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
+    defaultimagelab.configure(image = tacosImage,text ="Tacos",font=('Helvetica', 14,"bold"),foreground="white",compound = "bottom",padding = (5, 5, 5, 5),background="#000")
     tajinFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     spagettiFrame.configure(relief = "sunken",style="DishFrame.TFrame")
     QuesadillaFrame.configure(relief = "sunken",style="DishFrame.TFrame")
@@ -172,14 +168,19 @@ def displayTacos():
 liste_of_orders = []
 totale = 0
 def add():
-    global main_ttc,order_name_with_price,list_order
     main_ttc = orderTransaction.cget("text")
     order_name_with_price = defaultimagelab.cget('text') +": "+str(prices[defaultimagelab.cget("text")])+"dh"+" "*30
+    
     list_order = main_ttc + order_name_with_price
+    
     orderTransaction.configure(text=list_order)
+    
     global totale
+    
     totale += prices[defaultimagelab.cget("text")]
+    
     orderTotalLabel.configure(text=f"TOTAL : {totale}dh")
+    
     liste_of_orders.append(order_name_with_price)
 
 def remove():
@@ -187,8 +188,7 @@ def remove():
     liste_of_orders.pop(-1)
     orderTransaction.configure(text=" ".join(liste_of_orders))
     totale -= prices[defaultimagelab.cget("text")]
-    if totale >= 0:
-        orderTotalLabel.configure(text=f"TOTAL :{totale}dh")
+    orderTotalLabel.configure(text=f"TOTAL :{totale}dh")
         
 def order():
     if not liste_of_orders:
@@ -251,17 +251,11 @@ tacosImage = ImageTk.PhotoImage(tacosimg)
 defaultimagelab = ttk.Label(displayFrame,image=defaultImage)
 defaultimagelab.grid(row=0,column=0,sticky='NSEW',columnspan=2)
 
-addOrderButton = ttk.Button(displayFrame, text = "ADD TO ORDER")
-addOrderButton.grid(row = 1, column = 0, padx = 2, sticky = "NSEW")
-
-removeOrderButton = ttk.Button(displayFrame, text = "REMOVE")
-removeOrderButton.grid(row = 1, column = 1, padx = 2, sticky = "NSEW")
-
 # ======================== display buttons ======================
 addtorderbutton = ttk.Button(displayFrame,text="ADD TO ORDER",command=add)
 addtorderbutton.grid(row=1,column=0,sticky='NSEW')
 
-removebutton = ttk.Button(displayFrame,text="REMOVE",command=remove)
+removebutton = ttk.Button(displayFrame,text="REMOVeE",command=remove)
 removebutton.grid(row=1,column=1,sticky="NSEW")
 
 # ====================== order =================
@@ -280,14 +274,6 @@ orderButton.grid(row = 4, column = 0, sticky = "EW")
 
 # ============== grid configuration ==========
 mainFrame.columnconfigure(2,weight=1)
-mainFrame.rowconfigure(1,weight=1)
-menuFrame.columnconfigure(0,weight=1)
-menuFrame.rowconfigure(1,weight=1)
-menuFrame.rowconfigure(2,weight=1)
-menuFrame.rowconfigure(3,weight=1)
-menuFrame.rowconfigure(4,weight=1)
-menuFrame.rowconfigure(5,weight=1)
-menuFrame.rowconfigure(6,weight=1)
 orderFrame.columnconfigure(0,weight=1)
 orderFrame.rowconfigure(2,weight=1)
 
